@@ -2425,101 +2425,605 @@ function ReviewsCarousel() {
   );
 }
 // ── Contact ───────────────────────────────────────────────────────────────────
+// function Contact() {
+//   const [form, setForm] = useState({ name: "", email: "", message: "" });
+//   const [sent, setSent] = useState(false);
+
+//   const handleSubmit = () => {
+//     setSent(true);
+//     setTimeout(() => setSent(false), 3500);
+//     setForm({ name: "", email: "", message: "" });
+//   };
+
+//   const inputStyle = {
+//     width: "100%", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.09)",
+//     borderRadius: 10, color: "#fff", fontFamily: "'DM Sans', sans-serif", fontSize: 14,
+//     padding: "12px 15px", outline: "none", boxSizing: "border-box", transition: "border-color 0.2s",
+//   };
+
+//   const links = [
+//     { label: "Email", value: "saha.dipofficial171@gmail.com", href: "mailto:saha.dipofficial171@gmail.com", color: "#00d4ff", icon: SiMailboxdotorg },
+//     { label: "LinkedIn", value: "https://www.linkedin.com/in/dip-saha-5b87a9207/", href: "https://www.linkedin.com/in/dip-saha-5b87a9207/", color: "#a855f7", icon: SiChainlink },
+//     { label: "GitHub", value: "https://github.com/iamDip10/", href: "https://github.com/iamDip10/", color: "#00d4ff", icon: SiGithub },
+//   ];
+
+//   return (
+//     <Section id="contact" className="section-pad" style={{ padding: "6rem 0", background: "#050814" }}>
+//       <div className="inner-pad" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 2rem" }}>
+//         <SectionLabel label="Get In Touch" />
+//         <SectionTitle>Contact Me</SectionTitle>
+//         <p style={{ color: "rgba(255,255,255,0.42)", fontSize: 14.5, fontFamily: "'DM Sans', sans-serif", marginBottom: "2.5rem", maxWidth: 480 }}>
+//           Open to backend engineering roles, freelance projects, and remote opportunities.
+//         </p>
+//         <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "3.5rem", alignItems: "start" }}>
+//           <div>
+//             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem", marginBottom: "2rem" }}>
+//               {links.map((item) => {
+//                 const Icon = item.icon;
+//                 return(
+//                 <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="contact-link"
+//                   style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 12, padding: "0.9rem 1.1rem", display: "flex", alignItems: "center", gap: "0.9rem", textDecoration: "none", color: "inherit", transition: "border-color 0.2s, background 0.2s, transform 0.2s" }}
+//                   onMouseEnter={(e) => { e.currentTarget.style.borderColor = `${item.color}30`; e.currentTarget.style.background = `${item.color}07`; }}
+//                   onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)"; e.currentTarget.style.background = "rgba(255,255,255,0.025)"; }}
+//                 >
+//                   <div style={{ fontSize: 20, width: 40, height: 40, background: `${item.color}14`, border: `1px solid ${item.color}20`, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+//                     <Icon color={item.color}/>
+//                   </div>
+//                   <div style={{ minWidth: 0 }}>
+//                     <div style={{ fontSize: 10, color: "rgba(255,255,255,0.28)", fontFamily: "'Space Mono', monospace", letterSpacing: 1, textTransform: "uppercase", marginBottom: 2 }}>{item.label}</div>
+//                     <div style={{ fontSize: 12.5, color: "rgba(255,255,255,0.6)", fontFamily: "'DM Sans', sans-serif", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.value}</div>
+//                   </div>
+//                   <span style={{ marginLeft: "auto", color: "rgba(255,255,255,0.18)", fontSize: 14 }}>→</span>
+//                 </a>
+//               )}
+//               )}
+//             </div>
+//             <div style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.14)", borderRadius: 12, padding: "1.1rem 1.3rem", display: "flex", gap: "0.7rem", alignItems: "flex-start" }}>
+//               <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#00d4ff", flexShrink: 0, marginTop: 5, animation: "pulse-dot 2s ease-in-out infinite" }} />
+//               <div>
+//                 <div style={{ fontSize: 13, fontWeight: 600, color: "#00d4ff", fontFamily: "'Syne', sans-serif", marginBottom: 4 }}>Currently Available</div>
+//                 <div style={{ fontSize: 12, color: "rgba(255,255,255,0.38)", fontFamily: "'DM Sans', sans-serif", lineHeight: 1.6 }}>Open to backend roles and select freelance projects. Prefer remote positions.</div>
+//               </div>
+//             </div>
+//           </div>
+
+//           {/* Form — no <form> tag to avoid submit reload in artifact */}
+//           <div style={{ display: "flex", flexDirection: "column", gap: "1.1rem" }}>
+//             {[
+//               { key: "name", label: "Name", placeholder: "John Doe", type: "text" },
+//               { key: "email", label: "Email", placeholder: "you@company.com", type: "email" },
+//             ].map(({ key, label, placeholder, type }) => (
+//               <div key={key}>
+//                 <label style={{ display: "block", fontSize: 11, color: "rgba(255,255,255,0.35)", fontFamily: "'Space Mono', monospace", letterSpacing: 1, textTransform: "uppercase", marginBottom: "0.45rem" }}>{label}</label>
+//                 <input style={inputStyle} type={type} placeholder={placeholder} value={form[key]} onChange={(e) => setForm({ ...form, [key]: e.target.value })}
+//                   onFocus={(e) => { e.target.style.borderColor = "rgba(0,212,255,0.38)"; }}
+//                   onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.09)"; }}
+//                 />
+//               </div>
+//             ))}
+//             <div>
+//               <label style={{ display: "block", fontSize: 11, color: "rgba(255,255,255,0.35)", fontFamily: "'Space Mono', monospace", letterSpacing: 1, textTransform: "uppercase", marginBottom: "0.45rem" }}>Message</label>
+//               <textarea style={{ ...inputStyle, height: 130, resize: "vertical" }} placeholder="Tell me about the role or project..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
+//                 onFocus={(e) => { e.target.style.borderColor = "rgba(0,212,255,0.38)"; }}
+//                 onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.09)"; }}
+//               />
+//             </div>
+//             <button
+//               onClick={handleSubmit}
+//               style={{
+//                 background: sent ? "linear-gradient(135deg,#00c853,#00e676)" : "linear-gradient(135deg,#00d4ff,#0066ff)",
+//                 border: "none", borderRadius: 10, color: "#fff", cursor: "pointer",
+//                 fontSize: 13, fontFamily: "'Space Mono', monospace", fontWeight: 700,
+//                 padding: "13px 26px", letterSpacing: 1,
+//                 boxShadow: sent ? "0 0 24px rgba(0,200,83,0.28)" : "0 0 24px rgba(0,212,255,0.22)",
+//                 transition: "all 0.3s",
+//               }}
+//             >
+//               {sent ? "✓ Message Sent!" : "Send Message →"}
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     </Section>
+//   );
+// }
+
+
 function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
   const [sent, setSent] = useState(false);
+
+  const isMobile = window.innerWidth < 768;
 
   const handleSubmit = () => {
     setSent(true);
-    setTimeout(() => setSent(false), 3500);
-    setForm({ name: "", email: "", message: "" });
+
+    setTimeout(() => {
+      setSent(false);
+    }, 3500);
+
+    setForm({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
 
   const inputStyle = {
-    width: "100%", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.09)",
-    borderRadius: 10, color: "#fff", fontFamily: "'DM Sans', sans-serif", fontSize: 14,
-    padding: "12px 15px", outline: "none", boxSizing: "border-box", transition: "border-color 0.2s",
+    width: "100%",
+
+    background: "rgba(255,255,255,0.04)",
+
+    border: "1px solid rgba(255,255,255,0.09)",
+
+    borderRadius: 10,
+
+    color: "#fff",
+
+    fontFamily: "'DM Sans', sans-serif",
+
+    fontSize: isMobile ? 16 : 14,
+
+    padding: "14px 15px",
+
+    outline: "none",
+
+    boxSizing: "border-box",
+
+    transition: "border-color 0.2s",
   };
 
   const links = [
-    { label: "Email", value: "saha.dipofficial171@gmail.com", href: "mailto:saha.dipofficial171@gmail.com", color: "#00d4ff", icon: SiMailboxdotorg },
-    { label: "LinkedIn", value: "https://www.linkedin.com/in/dip-saha-5b87a9207/", href: "https://www.linkedin.com/in/dip-saha-5b87a9207/", color: "#a855f7", icon: SiChainlink },
-    { label: "GitHub", value: "https://github.com/iamDip10/", href: "https://github.com/iamDip10/", color: "#00d4ff", icon: SiGithub },
+    {
+      label: "Email",
+      value: "saha.dipofficial171@gmail.com",
+      href: "mailto:saha.dipofficial171@gmail.com",
+      color: "#00d4ff",
+      icon: SiMailboxdotorg,
+    },
+    {
+      label: "LinkedIn",
+      value: "linkedin.com/in/dip-saha-5b87a9207",
+      href: "https://www.linkedin.com/in/dip-saha-5b87a9207/",
+      color: "#a855f7",
+      icon: SiChainlink,
+    },
+    {
+      label: "GitHub",
+      value: "github.com/iamDip10",
+      href: "https://github.com/iamDip10/",
+      color: "#00d4ff",
+      icon: SiGithub,
+    },
   ];
 
   return (
-    <Section id="contact" className="section-pad" style={{ padding: "6rem 0", background: "#050814" }}>
-      <div className="inner-pad" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 2rem" }}>
+    <Section
+      id="contact"
+      className="section-pad"
+      style={{
+        padding: isMobile ? "4rem 0" : "6rem 0",
+        background: "#050814",
+        overflow: "hidden",
+      }}
+    >
+      <div
+        className="inner-pad"
+        style={{
+          maxWidth: 1200,
+          margin: "0 auto",
+          padding: isMobile ? "0 1rem" : "0 2rem",
+          width: "100%",
+          boxSizing: "border-box",
+        }}
+      >
         <SectionLabel label="Get In Touch" />
+
         <SectionTitle>Contact Me</SectionTitle>
-        <p style={{ color: "rgba(255,255,255,0.42)", fontSize: 14.5, fontFamily: "'DM Sans', sans-serif", marginBottom: "2.5rem", maxWidth: 480 }}>
-          Open to backend engineering roles, freelance projects, and remote opportunities.
+
+        <p
+          style={{
+            color: "rgba(255,255,255,0.42)",
+            fontSize: isMobile ? 13 : 14.5,
+            fontFamily: "'DM Sans', sans-serif",
+            marginBottom: "2.5rem",
+            maxWidth: 480,
+            lineHeight: 1.7,
+          }}
+        >
+          Open to backend engineering roles, freelance projects,
+          and remote opportunities.
         </p>
-        <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "3.5rem", alignItems: "start" }}>
+
+        <div
+          className="contact-grid"
+          style={{
+            display: "grid",
+
+            gridTemplateColumns: isMobile
+              ? "1fr"
+              : "1fr 1.2fr",
+
+            gap: isMobile ? "2rem" : "3.5rem",
+
+            alignItems: "start",
+
+            width: "100%",
+          }}
+        >
+          {/* LEFT */}
           <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem", marginBottom: "2rem" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.85rem",
+                marginBottom: "2rem",
+              }}
+            >
               {links.map((item) => {
                 const Icon = item.icon;
-                return(
-                <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="contact-link"
-                  style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 12, padding: "0.9rem 1.1rem", display: "flex", alignItems: "center", gap: "0.9rem", textDecoration: "none", color: "inherit", transition: "border-color 0.2s, background 0.2s, transform 0.2s" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = `${item.color}30`; e.currentTarget.style.background = `${item.color}07`; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)"; e.currentTarget.style.background = "rgba(255,255,255,0.025)"; }}
-                >
-                  <div style={{ fontSize: 20, width: 40, height: 40, background: `${item.color}14`, border: `1px solid ${item.color}20`, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <Icon color={item.color}/>
-                  </div>
-                  <div style={{ minWidth: 0 }}>
-                    <div style={{ fontSize: 10, color: "rgba(255,255,255,0.28)", fontFamily: "'Space Mono', monospace", letterSpacing: 1, textTransform: "uppercase", marginBottom: 2 }}>{item.label}</div>
-                    <div style={{ fontSize: 12.5, color: "rgba(255,255,255,0.6)", fontFamily: "'DM Sans', sans-serif", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.value}</div>
-                  </div>
-                  <span style={{ marginLeft: "auto", color: "rgba(255,255,255,0.18)", fontSize: 14 }}>→</span>
-                </a>
-              )}
-              )}
+
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      background:
+                        "rgba(255,255,255,0.025)",
+
+                      border:
+                        "1px solid rgba(255,255,255,0.07)",
+
+                      borderRadius: 14,
+
+                      padding: isMobile
+                        ? "1rem"
+                        : "0.9rem 1.1rem",
+
+                      display: "flex",
+
+                      alignItems: "center",
+
+                      gap: "0.9rem",
+
+                      textDecoration: "none",
+
+                      color: "inherit",
+
+                      transition: "all .25s ease",
+
+                      width: "100%",
+
+                      boxSizing: "border-box",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor =
+                        `${item.color}40`;
+
+                      e.currentTarget.style.background =
+                        `${item.color}08`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor =
+                        "rgba(255,255,255,0.07)";
+
+                      e.currentTarget.style.background =
+                        "rgba(255,255,255,0.025)";
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: isMobile ? 42 : 40,
+                        height: isMobile ? 42 : 40,
+
+                        background: `${item.color}14`,
+
+                        border:
+                          `1px solid ${item.color}22`,
+
+                        borderRadius: 10,
+
+                        display: "flex",
+
+                        alignItems: "center",
+
+                        justifyContent: "center",
+
+                        flexShrink: 0,
+                      }}
+                    >
+                      <Icon
+                        color={item.color}
+                        size={18}
+                      />
+                    </div>
+
+                    <div
+                      style={{
+                        minWidth: 0,
+                        flex: 1,
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontSize: 10,
+
+                          color:
+                            "rgba(255,255,255,0.28)",
+
+                          fontFamily:
+                            "'Space Mono', monospace",
+
+                          letterSpacing: 1,
+
+                          textTransform: "uppercase",
+
+                          marginBottom: 3,
+                        }}
+                      >
+                        {item.label}
+                      </div>
+
+                      <div
+                        style={{
+                          fontSize: isMobile ? 12 : 12.5,
+
+                          color:
+                            "rgba(255,255,255,0.6)",
+
+                          fontFamily:
+                            "'DM Sans', sans-serif",
+
+                          wordBreak: "break-word",
+
+                          overflowWrap: "break-word",
+
+                          whiteSpace: "normal",
+
+                          lineHeight: 1.5,
+                        }}
+                      >
+                        {item.value}
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
             </div>
-            <div style={{ background: "rgba(0,212,255,0.04)", border: "1px solid rgba(0,212,255,0.14)", borderRadius: 12, padding: "1.1rem 1.3rem", display: "flex", gap: "0.7rem", alignItems: "flex-start" }}>
-              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#00d4ff", flexShrink: 0, marginTop: 5, animation: "pulse-dot 2s ease-in-out infinite" }} />
+
+            {/* availability */}
+            <div
+              style={{
+                background:
+                  "rgba(0,212,255,0.04)",
+
+                border:
+                  "1px solid rgba(0,212,255,0.14)",
+
+                borderRadius: 14,
+
+                padding: isMobile
+                  ? "1rem"
+                  : "1.1rem 1.3rem",
+
+                display: "flex",
+
+                gap: "0.7rem",
+
+                alignItems: "flex-start",
+              }}
+            >
+              <span
+                style={{
+                  width: 8,
+                  height: 8,
+
+                  borderRadius: "50%",
+
+                  background: "#00d4ff",
+
+                  flexShrink: 0,
+
+                  marginTop: 6,
+                }}
+              />
+
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#00d4ff", fontFamily: "'Syne', sans-serif", marginBottom: 4 }}>Currently Available</div>
-                <div style={{ fontSize: 12, color: "rgba(255,255,255,0.38)", fontFamily: "'DM Sans', sans-serif", lineHeight: 1.6 }}>Open to backend roles and select freelance projects. Prefer remote positions.</div>
+                <div
+                  style={{
+                    fontSize: isMobile ? 14 : 13,
+
+                    fontWeight: 700,
+
+                    color: "#00d4ff",
+
+                    fontFamily: "'Syne', sans-serif",
+
+                    marginBottom: 5,
+                  }}
+                >
+                  Currently Available
+                </div>
+
+                <div
+                  style={{
+                    fontSize: isMobile ? 12.5 : 12,
+
+                    color:
+                      "rgba(255,255,255,0.4)",
+
+                    lineHeight: 1.7,
+
+                    fontFamily:
+                      "'DM Sans', sans-serif",
+                  }}
+                >
+                  Open to backend roles and select
+                  freelance projects. Prefer remote
+                  positions.
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Form — no <form> tag to avoid submit reload in artifact */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.1rem" }}>
+          {/* RIGHT */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.1rem",
+              width: "100%",
+            }}
+          >
             {[
-              { key: "name", label: "Name", placeholder: "John Doe", type: "text" },
-              { key: "email", label: "Email", placeholder: "you@company.com", type: "email" },
-            ].map(({ key, label, placeholder, type }) => (
-              <div key={key}>
-                <label style={{ display: "block", fontSize: 11, color: "rgba(255,255,255,0.35)", fontFamily: "'Space Mono', monospace", letterSpacing: 1, textTransform: "uppercase", marginBottom: "0.45rem" }}>{label}</label>
-                <input style={inputStyle} type={type} placeholder={placeholder} value={form[key]} onChange={(e) => setForm({ ...form, [key]: e.target.value })}
-                  onFocus={(e) => { e.target.style.borderColor = "rgba(0,212,255,0.38)"; }}
-                  onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.09)"; }}
-                />
-              </div>
-            ))}
+              {
+                key: "name",
+                label: "Name",
+                placeholder: "John Doe",
+                type: "text",
+              },
+              {
+                key: "email",
+                label: "Email",
+                placeholder: "you@company.com",
+                type: "email",
+              },
+            ].map(
+              ({
+                key,
+                label,
+                placeholder,
+                type,
+              }) => (
+                <div key={key}>
+                  <label
+                    style={{
+                      display: "block",
+
+                      fontSize: 11,
+
+                      color:
+                        "rgba(255,255,255,0.35)",
+
+                      fontFamily:
+                        "'Space Mono', monospace",
+
+                      letterSpacing: 1,
+
+                      textTransform: "uppercase",
+
+                      marginBottom: "0.45rem",
+                    }}
+                  >
+                    {label}
+                  </label>
+
+                  <input
+                    type={type}
+                    placeholder={placeholder}
+                    value={form[key]}
+                    onChange={(e) =>
+                      setForm({
+                        ...form,
+                        [key]: e.target.value,
+                      })
+                    }
+                    style={inputStyle}
+                  />
+                </div>
+              )
+            )}
+
             <div>
-              <label style={{ display: "block", fontSize: 11, color: "rgba(255,255,255,0.35)", fontFamily: "'Space Mono', monospace", letterSpacing: 1, textTransform: "uppercase", marginBottom: "0.45rem" }}>Message</label>
-              <textarea style={{ ...inputStyle, height: 130, resize: "vertical" }} placeholder="Tell me about the role or project..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
-                onFocus={(e) => { e.target.style.borderColor = "rgba(0,212,255,0.38)"; }}
-                onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.09)"; }}
+              <label
+                style={{
+                  display: "block",
+
+                  fontSize: 11,
+
+                  color:
+                    "rgba(255,255,255,0.35)",
+
+                  fontFamily:
+                    "'Space Mono', monospace",
+
+                  letterSpacing: 1,
+
+                  textTransform: "uppercase",
+
+                  marginBottom: "0.45rem",
+                }}
+              >
+                Message
+              </label>
+
+              <textarea
+                placeholder="Tell me about the role or project..."
+                value={form.message}
+                onChange={(e) =>
+                  setForm({
+                    ...form,
+                    message: e.target.value,
+                  })
+                }
+                style={{
+                  ...inputStyle,
+                  height: 140,
+                  resize: "vertical",
+                }}
               />
             </div>
+
             <button
               onClick={handleSubmit}
               style={{
-                background: sent ? "linear-gradient(135deg,#00c853,#00e676)" : "linear-gradient(135deg,#00d4ff,#0066ff)",
-                border: "none", borderRadius: 10, color: "#fff", cursor: "pointer",
-                fontSize: 13, fontFamily: "'Space Mono', monospace", fontWeight: 700,
-                padding: "13px 26px", letterSpacing: 1,
-                boxShadow: sent ? "0 0 24px rgba(0,200,83,0.28)" : "0 0 24px rgba(0,212,255,0.22)",
-                transition: "all 0.3s",
+                background: sent
+                  ? "linear-gradient(135deg,#00c853,#00e676)"
+                  : "linear-gradient(135deg,#00d4ff,#0066ff)",
+
+                border: "none",
+
+                borderRadius: 12,
+
+                color: "#fff",
+
+                cursor: "pointer",
+
+                fontSize: 13,
+
+                fontFamily:
+                  "'Space Mono', monospace",
+
+                fontWeight: 700,
+
+                padding: isMobile
+                  ? "15px"
+                  : "13px 26px",
+
+                width: isMobile
+                  ? "100%"
+                  : "auto",
+
+                letterSpacing: 1,
+
+                boxShadow: sent
+                  ? "0 0 24px rgba(0,200,83,0.28)"
+                  : "0 0 24px rgba(0,212,255,0.22)",
+
+                transition: "all .3s ease",
               }}
             >
-              {sent ? "✓ Message Sent!" : "Send Message →"}
+              {sent
+                ? "✓ Message Sent!"
+                : "Send Message →"}
             </button>
           </div>
         </div>
@@ -2527,6 +3031,7 @@ function Contact() {
     </Section>
   );
 }
+
 
 function Footer() {
   return (
