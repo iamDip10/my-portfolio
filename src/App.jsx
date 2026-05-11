@@ -386,6 +386,303 @@ const GLOBAL_CSS = `
   }
 `;
 
+const responsiveStyles = `
+/* ============================= */
+/* MOBILE RESPONSIVE SYSTEM */
+/* ============================= */
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+}
+
+body{
+  overflow-x:hidden;
+}
+
+/* ============================= */
+/* LARGE TABLETS */
+/* ============================= */
+
+@media (max-width: 1100px){
+
+  .hero-grid,
+  .about-grid,
+  .contact-grid{
+    grid-template-columns:1fr !important;
+    gap:2.5rem !important;
+  }
+
+  .viz-container{
+    order:-1;
+  }
+
+  .proj-grid{
+    grid-template-columns:1fr !important;
+  }
+
+}
+
+/* ============================= */
+/* TABLET */
+/* ============================= */
+
+@media (max-width: 768px){
+
+  .inner-pad,
+  .hero-pad{
+    padding-left:1.2rem !important;
+    padding-right:1.2rem !important;
+  }
+
+  .section-pad{
+    padding:4.5rem 0 !important;
+  }
+
+  .hero-grid{
+    gap:2rem !important;
+  }
+
+  .about-grid{
+    gap:2rem !important;
+  }
+
+  .about-cards{
+    grid-template-columns:1fr !important;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr !important;
+    padding:1.2rem !important;
+    gap:1rem !important;
+  }
+
+  .proj-grid{
+    gap:1.2rem !important;
+  }
+
+  .contact-grid{
+    gap:2rem !important;
+  }
+
+  .desktop-nav{
+    display:none !important;
+  }
+
+  .hamburger{
+    display:flex !important;
+  }
+
+}
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 640px){
+
+  h1{
+    font-size:2.4rem !important;
+    line-height:1.05 !important;
+  }
+
+  h2{
+    font-size:2rem !important;
+    line-height:1.1 !important;
+  }
+
+  p{
+    font-size:14px !important;
+  }
+
+  .hero-pad{
+    padding-top:7rem !important;
+    padding-bottom:3rem !important;
+  }
+
+  .section-pad{
+    padding:4rem 0 !important;
+  }
+
+  .inner-pad,
+  .hero-pad{
+    padding-left:1rem !important;
+    padding-right:1rem !important;
+  }
+
+  .skill-card{
+    padding:1rem !important;
+  }
+
+  .proj-card{
+    border-radius:16px !important;
+  }
+
+  .proj-card h3{
+    font-size:18px !important;
+  }
+
+  .proj-card p{
+    font-size:13px !important;
+  }
+
+  .contact-link{
+    padding:0.85rem !important;
+  }
+
+  .contact-link span{
+    font-size:12px !important;
+  }
+
+  button{
+    min-height:44px;
+  }
+
+  input,
+  textarea{
+    font-size:16px !important;
+  }
+
+}
+
+/* ============================= */
+/* SMALL MOBILE */
+/* ============================= */
+
+@media (max-width: 480px){
+
+  h1{
+    font-size:2rem !important;
+  }
+
+  h2{
+    font-size:1.7rem !important;
+  }
+
+  .hero-pad{
+    padding-top:6.5rem !important;
+  }
+
+  .stats-grid{
+    border-radius:14px !important;
+  }
+
+  .proj-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .about-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .about-cards{
+    grid-template-columns:1fr !important;
+  }
+
+  .review-carousel-card{
+    width:100% !important;
+  }
+
+}
+
+/* ============================= */
+/* REVIEWS CAROUSEL MOBILE FIX */
+/* ============================= */
+
+@media (max-width: 768px){
+
+  .reviews-carousel-wrap{
+    min-height:auto !important;
+    padding-bottom:4rem !important;
+  }
+
+  .review-slide{
+    width:100% !important;
+    transform:none !important;
+    opacity:1 !important;
+    position:relative !important;
+    margin-bottom:1rem !important;
+    filter:none !important;
+  }
+
+  .review-nav-btn{
+    width:42px !important;
+    height:42px !important;
+    font-size:18px !important;
+  }
+
+}
+
+/* ============================= */
+/* MOBILE MENU */
+/* ============================= */
+
+.mobile-menu{
+  position:fixed;
+  top:64px;
+  left:0;
+  right:0;
+
+  background:rgba(5,8,20,0.98);
+
+  backdrop-filter:blur(20px);
+
+  border-top:1px solid rgba(255,255,255,0.08);
+
+  padding:1rem;
+
+  display:flex;
+  flex-direction:column;
+  gap:0.8rem;
+
+  z-index:999;
+}
+
+.mobile-menu button{
+  width:100%;
+
+  text-align:left;
+
+  padding:0.9rem 1rem;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:rgba(255,255,255,0.04);
+
+  color:#fff;
+
+  font-family:'DM Sans',sans-serif;
+}
+
+/* ============================= */
+/* IMAGE SAFETY */
+/* ============================= */
+
+img{
+  max-width:100%;
+  height:auto;
+}
+
+/* ============================= */
+/* OVERFLOW FIX */
+/* ============================= */
+
+section,
+div{
+  max-width:100%;
+}
+`;
+
 // ─── Components ──────────────────────────────────────────────────────────────
 function CSSParticleBg() {
   const dots = [
@@ -1853,8 +2150,7 @@ function ReviewsCarousel() {
               </div>
             );
           })}
-
-          {/* left button */}
+{/* 
           <button
             onClick={prevSlide}
             style={{
@@ -1886,7 +2182,6 @@ function ReviewsCarousel() {
             ←
           </button>
 
-          {/* right button */}
           <button
             onClick={nextSlide}
             style={{
@@ -1916,11 +2211,119 @@ function ReviewsCarousel() {
             }}
           >
             →
-          </button>
-        </div>
+          </button> */}
+
+          {/* left button */}
+<button
+  onClick={prevSlide}
+  style={{
+    position: "absolute",
+
+    left: window.innerWidth < 768 ? 12 : 0,
+
+    zIndex: 20,
+
+    width: window.innerWidth < 768 ? 38 : 54,
+    height: window.innerWidth < 768 ? 38 : 54,
+
+    minWidth: 0,
+    minHeight: 0,
+
+    borderRadius: "50%",
+
+    border:
+      window.innerWidth < 768
+        ? "1px solid rgba(0,212,255,0.25)"
+        : "1px solid rgba(255,255,255,0.1)",
+
+    background:
+      window.innerWidth < 768
+        ? "rgba(0,212,255,0.12)"
+        : "rgba(255,255,255,0.05)",
+
+    backdropFilter: "blur(12px)",
+
+    color:
+      window.innerWidth < 768
+        ? "#00d4ff"
+        : "#fff",
+
+    fontSize: window.innerWidth < 768 ? 18 : 24,
+
+    cursor: "pointer",
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+
+    boxShadow:
+      window.innerWidth < 768
+        ? "0 0 20px rgba(0,212,255,0.18)"
+        : "none",
+
+    transition: "all .25s ease",
+  }}
+>
+  ←
+</button>
+
+{/* right button */}
+<button
+  onClick={nextSlide}
+  style={{
+    position: "absolute",
+
+    right: window.innerWidth < 768 ? 12 : 0,
+
+    zIndex: 20,
+
+    width: window.innerWidth < 768 ? 38 : 54,
+    height: window.innerWidth < 768 ? 38 : 54,
+
+    minWidth: 0,
+    minHeight: 0,
+
+    borderRadius: "50%",
+
+    border:
+      window.innerWidth < 768
+        ? "1px solid rgba(168,85,247,0.3)"
+        : "1px solid rgba(255,255,255,0.1)",
+
+    background:
+      window.innerWidth < 768
+        ? "rgba(168,85,247,0.12)"
+        : "rgba(255,255,255,0.05)",
+
+    backdropFilter: "blur(12px)",
+
+    color:
+      window.innerWidth < 768
+        ? "#a855f7"
+        : "#fff",
+
+    fontSize: window.innerWidth < 768 ? 18 : 24,
+
+    cursor: "pointer",
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+
+    boxShadow:
+      window.innerWidth < 768
+        ? "0 0 20px rgba(168,85,247,0.18)"
+        : "none",
+
+    transition: "all .25s ease",
+  }}
+>
+  →
+</button>
+        </div> 
 
         {/* indicators */}
-        <div
+        {/* <div
           style={{
             display: "flex",
             justifyContent: "center",
@@ -1951,7 +2354,72 @@ function ReviewsCarousel() {
               }}
             />
           ))}
-        </div>
+        </div> */}
+
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    gap: 8,
+
+    marginTop: "1rem",
+
+    position: "absolute",
+    bottom: 20,
+    left: "50%",
+
+    transform: "translateX(-50%)",
+
+    zIndex: 20,
+
+    background: "rgba(255,255,255,0.04)",
+
+    border: "1px solid rgba(255,255,255,0.08)",
+
+    backdropFilter: "blur(12px)",
+
+    padding: "8px 14px",
+
+    borderRadius: 999,
+  }}
+>
+  {REVIEWS.map((_, i) => (
+    <button
+    key={i}
+    onClick={() => setActive(i)}
+    style={{
+      width: active === i ? 8 : 6,
+      height: active === i ? 8 : 6,
+  
+      minHeight: 0,
+      minWidth: 0,
+  
+      padding: 0,
+  
+      border: "none",
+      borderRadius: "50%",
+  
+      flexShrink: 0,
+  
+      background:
+        active === i
+          ? "linear-gradient(135deg,#00d4ff,#a855f7)"
+          : "rgba(255,255,255,0.2)",
+  
+      boxShadow:
+        active === i
+          ? "0 0 10px rgba(0,212,255,0.45)"
+          : "none",
+  
+      transition: "all .25s ease",
+  
+      cursor: "pointer",
+    }}
+  />
+  ))}
+</div>
       </div>
     </Section>
   );
@@ -2125,6 +2593,7 @@ export default function App() {
 
   return (
     <div>
+       <style>{responsiveStyles}</style>
       <ProgressBar progress={progress} />
       <Navbar active={null} />
       <Hero />
