@@ -2067,10 +2067,10 @@ function Footer() {
         dip<span style={{ color: "#a855f7" }}>.</span>dev
       </div>
       <p style={{ fontSize: 12, color: "rgba(255,255,255,0.22)", fontFamily: "'DM Sans', sans-serif", marginBottom: "0.4rem" }}>
-        Dip Saha · Python Backend Developer · Dhaka, Bangladesh
+        Dip Saha · Wordpress Support Enginner · Python Backend Developer · Dhaka, Bangladesh
       </p>
       <p style={{ fontSize: 10, color: "rgba(255,255,255,0.12)", fontFamily: "'Space Mono', monospace" }}>
-        © {new Date().getFullYear()} · Built with React
+        © {new Date().getFullYear()}
       </p>
     </footer>
   );
