@@ -919,7 +919,7 @@ function Hero() {
         <div className="stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1.2rem", marginTop: "3.5rem", padding: "1.8rem", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 16 }}>
           {[
             { num: "2+", label: "Years Experience" },
-            { num: "2+", label: "Projects Completed" },
+            { num: "20+", label: "Projects Completed" },
             { num: "100%", label: "Remote Ready" },
           ].map(({ num, label }) => (
             <div key={label} style={{ textAlign: "center" }}>
