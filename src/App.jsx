@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Analytics } from '@vercel/analytics/react';
 
 
 import {
@@ -3111,6 +3112,7 @@ export default function App() {
       <Contact />
       <Footer />
       <BackToTop progress={progress} />
+      <Analytics />
     </div>
   );
 }
